@@ -1,12 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe, Star, Award, Truck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe, Star, Award, Truck, Send, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [language, setLanguage] = useState('en');
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatMessage, setChatMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
   const content = {
     en: {
@@ -47,19 +50,7 @@ const Index = () => {
       },
       brands: {
         title: 'Authorized Partner for Leading Brands',
-        subtitle: 'Premium quality truck parts from world-renowned manufacturers',
-        iveco: {
-          name: 'IVECO',
-          description: 'Complete range of original IVECO truck parts and premium compatible components'
-        },
-        man: {
-          name: 'MAN',
-          description: 'Genuine MAN parts for optimal truck performance and longevity'
-        },
-        zf: {
-          name: 'ZF',
-          description: 'Advanced ZF transmission and drivetrain technology solutions'
-        }
+        subtitle: 'Premium quality truck parts from world-renowned manufacturers'
       },
       features: {
         title: 'Why Choose ALREEM?',
@@ -88,6 +79,12 @@ const Index = () => {
         email: 'info@alreem-parts.sa',
         location: 'View Our Location',
         whatsapp: 'WhatsApp Now'
+      },
+      chat: {
+        title: 'Need Help?',
+        placeholder: 'Type your message...',
+        send: 'Send',
+        close: 'Close'
       }
     },
     ar: {
@@ -128,19 +125,7 @@ const Index = () => {
       },
       brands: {
         title: 'شريك معتمد للعلامات التجارية الرائدة',
-        subtitle: 'قطع غيار شاحنات عالية الجودة من مصنعين مشهورين عالمياً',
-        iveco: {
-          name: 'إيفيكو',
-          description: 'مجموعة كاملة من قطع إيفيكو الأصلية والمكونات المتوافقة المتميزة'
-        },
-        man: {
-          name: 'مان',
-          description: 'قطع مان الأصلية للأداء الأمثل وطول عمر الشاحنة'
-        },
-        zf: {
-          name: 'ZF',
-          description: 'حلول تقنية متقدمة لناقل الحركة ونظام الدفع من ZF'
-        }
+        subtitle: 'قطع غيار شاحنات عالية الجودة من مصنعين مشهورين عالمياً'
       },
       features: {
         title: 'ليش تختار الرِيم؟',
@@ -169,6 +154,12 @@ const Index = () => {
         email: 'info@alreem-parts.sa',
         location: 'شوف موقعنا',
         whatsapp: 'واتساب الحين'
+      },
+      chat: {
+        title: 'تحتاج مساعدة؟',
+        placeholder: 'اكتب رسالتك...',
+        send: 'إرسال',
+        close: 'إغلاق'
       }
     }
   };
@@ -194,6 +185,34 @@ const Index = () => {
     setLanguage(prev => prev === 'en' ? 'ar' : 'en');
   };
 
+  const sendChatMessage = async () => {
+    if (!chatMessage.trim() || isSending) return;
+    
+    setIsSending(true);
+    try {
+      const response = await fetch('https://n8n.ahmed.today/webhook/45e1c1fe-5fb9-4f49-b898-32a44a481b60', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: chatMessage,
+          timestamp: new Date().toISOString(),
+          language: language,
+          source: 'alreem-website'
+        }),
+      });
+      
+      console.log('Chat message sent:', response.status);
+      setChatMessage('');
+      setIsChatOpen(false);
+    } catch (error) {
+      console.error('Error sending chat message:', error);
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <div className={`min-h-screen bg-background ${language === 'ar' ? 'rtl font-arabic' : 'ltr font-english'}`} dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Fixed WhatsApp Button */}
@@ -206,6 +225,52 @@ const Index = () => {
       >
         <MessageCircle className="h-6 w-6" />
       </a>
+
+      {/* Chat Bot */}
+      <div className="fixed bottom-6 left-6 z-50">
+        {!isChatOpen ? (
+          <button
+            onClick={() => setIsChatOpen(true)}
+            className="bg-primary text-white p-4 rounded-full shadow-xl hover:bg-primary/90 transition-all duration-300 hover:scale-110 animate-pulse-subtle"
+            aria-label="Open chat"
+          >
+            <MessageCircle className="h-6 w-6" />
+          </button>
+        ) : (
+          <div className="bg-white rounded-lg shadow-2xl border border-border/20 w-80 max-w-[90vw]">
+            <div className="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
+              <h3 className="font-semibold">{currentContent.chat.title}</h3>
+              <button
+                onClick={() => setIsChatOpen(false)}
+                className="text-white hover:text-gray-200"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-4">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={chatMessage}
+                  onChange={(e) => setChatMessage(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && sendChatMessage()}
+                  placeholder={currentContent.chat.placeholder}
+                  className="flex-1 border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  disabled={isSending}
+                />
+                <Button
+                  onClick={sendChatMessage}
+                  disabled={!chatMessage.trim() || isSending}
+                  size="sm"
+                  className="px-3"
+                >
+                  <Send className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-40 border-b border-border/50">
@@ -242,7 +307,7 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 min-w-[120px] justify-center hover:scale-105 transition-all duration-300 border-2 hover:border-primary"
+                className="flex items-center gap-2 min-w-[120px] justify-center hover:scale-105 transition-all duration-300 border-2 hover:border-primary bg-white"
               >
                 <Globe className="h-4 w-4" />
                 <span className="font-semibold">
@@ -327,51 +392,39 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          <div className="flex justify-center items-center gap-16 md:gap-24">
             {/* IVECO - Larger */}
-            <Card className="text-center p-10 hover:shadow-2xl transition-all duration-500 card-hover group transform hover:-translate-y-2">
-              <CardContent className="pt-8">
-                <div className="h-32 flex items-center justify-center mb-8">
-                  <img 
-                    src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" 
-                    alt="IVECO Logo" 
-                    className="h-24 object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">{currentContent.brands.iveco.name}</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">{currentContent.brands.iveco.description}</p>
-              </CardContent>
-            </Card>
+            <div className="text-center group">
+              <div className="h-32 flex items-center justify-center mb-4">
+                <img 
+                  src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" 
+                  alt="IVECO" 
+                  className="h-24 object-contain group-hover:scale-110 transition-transform duration-500 card-hover"
+                />
+              </div>
+            </div>
             
             {/* MAN */}
-            <Card className="text-center p-10 hover:shadow-2xl transition-all duration-500 card-hover group transform hover:-translate-y-2">
-              <CardContent className="pt-8">
-                <div className="h-32 flex items-center justify-center mb-8">
-                  <img 
-                    src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" 
-                    alt="MAN Logo" 
-                    className="h-20 object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">{currentContent.brands.man.name}</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">{currentContent.brands.man.description}</p>
-              </CardContent>
-            </Card>
+            <div className="text-center group">
+              <div className="h-32 flex items-center justify-center mb-4">
+                <img 
+                  src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" 
+                  alt="MAN" 
+                  className="h-16 object-contain group-hover:scale-110 transition-transform duration-500 card-hover"
+                />
+              </div>
+            </div>
             
             {/* ZF */}
-            <Card className="text-center p-10 hover:shadow-2xl transition-all duration-500 card-hover group transform hover:-translate-y-2">
-              <CardContent className="pt-8">
-                <div className="h-32 flex items-center justify-center mb-8">
-                  <img 
-                    src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" 
-                    alt="ZF Logo" 
-                    className="h-20 object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-primary">{currentContent.brands.zf.name}</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">{currentContent.brands.zf.description}</p>
-              </CardContent>
-            </Card>
+            <div className="text-center group">
+              <div className="h-32 flex items-center justify-center mb-4">
+                <img 
+                  src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" 
+                  alt="ZF" 
+                  className="h-16 object-contain group-hover:scale-110 transition-transform duration-500 card-hover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -476,11 +529,11 @@ const Index = () => {
             </Card>
           </div>
 
-          {/* Google Maps Embed */}
+          {/* Google Maps Embed - Fixed */}
           <div className="mb-16">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-border/20">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-border/20 max-w-5xl mx-auto">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.3962408804855!2d46.6722!3d24.7136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDAzMDguMCJF!5e0!3m2!1sen!2ssa!4v1625097200000!5m2!1sen!2ssa"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d924.8607746134724!2d46.67220257077407!3d24.71360279743582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0c3b5c8b1f1f%3A0x1234567890abcdef!2z2KfZhNix2YrZhQ!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
@@ -488,7 +541,7 @@ const Index = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="ALREEM Shop Location"
-                className="hover:scale-105 transition-transform duration-500"
+                className="rounded-2xl"
               ></iframe>
             </div>
           </div>
