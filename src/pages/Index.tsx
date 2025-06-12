@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe, Star, Award, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -14,7 +14,6 @@ const Index = () => {
         home: 'Home',
         brands: 'Brands',
         catalog: 'Parts Catalog',
-        services: 'Services',
         about: 'About Us',
         contact: 'Contact'
       },
@@ -22,70 +21,73 @@ const Index = () => {
         slides: [
           {
             title: 'Premium IVECO Parts & Solutions',
-            subtitle: 'Professional parts for IVECO Stralis and S-Way models',
+            subtitle: 'Original and compatible parts for IVECO Stralis and S-Way models',
+            cta: 'Explore IVECO Parts',
             image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
-            title: 'Modern IVECO Electric Solutions',
-            subtitle: 'Advanced electric truck parts and components',
+            title: 'Advanced Electric Truck Solutions',
+            subtitle: 'Cutting-edge electric truck parts and innovative components',
+            cta: 'View Electric Parts',
             image: '/lovable-uploads/96350c99-75b3-4a1f-9e6d-b4f97d36d341.png'
           },
           {
-            title: 'IVECO S-Way Performance Parts',
-            subtitle: 'High-performance components for modern fleets',
+            title: 'High-Performance IVECO S-Way',
+            subtitle: 'Premium performance components for modern commercial fleets',
+            cta: 'S-Way Catalog',
             image: '/lovable-uploads/9593024c-17bd-4a70-a67c-ea93154a27fd.png'
           },
           {
             title: 'MAN Truck Excellence',
-            subtitle: 'Quality MAN parts for maximum reliability',
+            subtitle: 'Genuine MAN parts for maximum reliability and performance',
+            cta: 'MAN Parts',
             image: '/lovable-uploads/8b5c93e9-e150-4916-9d20-92cd6e8d45a4.png'
           }
         ]
       },
       brands: {
-        title: 'Authorized Dealer for Leading Brands',
-        subtitle: 'Premium quality parts from trusted manufacturers',
+        title: 'Authorized Partner for Leading Brands',
+        subtitle: 'Premium quality truck parts from world-renowned manufacturers',
         iveco: {
           name: 'IVECO',
-          description: 'Complete range of IVECO truck parts and components'
+          description: 'Complete range of original IVECO truck parts and premium compatible components'
         },
         man: {
           name: 'MAN',
-          description: 'Genuine MAN parts for optimal performance'
+          description: 'Genuine MAN parts for optimal truck performance and longevity'
         },
         zf: {
           name: 'ZF',
-          description: 'Advanced ZF transmission and drivetrain solutions'
+          description: 'Advanced ZF transmission and drivetrain technology solutions'
         }
       },
-      services: {
-        title: 'Professional Services',
+      features: {
+        title: 'Why Choose ALREEM?',
         items: [
           {
-            title: 'Parts Consultation',
-            description: 'Expert guidance for part selection and compatibility'
+            icon: Award,
+            title: 'Certified Quality',
+            description: 'All parts meet international quality standards and manufacturer specifications'
           },
           {
-            title: 'Installation Support',
-            description: 'Professional installation and technical assistance'
+            icon: Truck,
+            title: 'Expert Knowledge',
+            description: 'Years of experience in commercial truck parts and fleet solutions'
           },
           {
-            title: 'Warranty Service',
-            description: 'Comprehensive warranty on all genuine parts'
-          },
-          {
-            title: 'Fleet Solutions',
-            description: 'Customized solutions for commercial fleets'
+            icon: Star,
+            title: 'Fast Service',
+            description: 'Quick sourcing and delivery for urgent fleet maintenance needs'
           }
         ]
       },
       contact: {
-        title: 'Get in Touch',
-        subtitle: 'Ready to help with your truck parts needs',
+        title: 'Get in Touch with ALREEM',
+        subtitle: 'Ready to assist with all your commercial truck parts needs',
         phone: '+966 50 410 6845',
-        email: 'info@truckparts.sa',
-        location: 'View Location',
-        whatsapp: 'Chat on WhatsApp'
+        email: 'info@alreem-parts.sa',
+        location: 'View Our Location',
+        whatsapp: 'WhatsApp Now'
       }
     },
     ar: {
@@ -93,78 +95,80 @@ const Index = () => {
         home: 'الرئيسية',
         brands: 'العلامات التجارية',
         catalog: 'كتالوج القطع',
-        services: 'الخدمات',
-        about: 'من نحن',
-        contact: 'اتصل بنا'
+        about: 'عن الرِيم',
+        contact: 'تواصل معنا'
       },
       hero: {
         slides: [
           {
-            title: 'قطع غيار إيفيكو المتميزة والحلول',
-            subtitle: 'قطع غيار احترافية لموديلات إيفيكو سترالس و S-Way',
+            title: 'قطع غيار إيفيكو الأصلية والمتميزة',
+            subtitle: 'قطع أصلية ومتوافقة لموديلات إيفيكو سترالس و S-Way',
+            cta: 'استكشف قطع إيفيكو',
             image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
-            title: 'حلول إيفيكو الكهربائية الحديثة',
-            subtitle: 'قطع غيار ومكونات متقدمة للشاحنات الكهربائية',
+            title: 'حلول الشاحنات الكهربائية المتطورة',
+            subtitle: 'قطع غيار حديثة ومكونات مبتكرة للشاحنات الكهربائية',
+            cta: 'اطلع على القطع الكهربائية',
             image: '/lovable-uploads/96350c99-75b3-4a1f-9e6d-b4f97d36d341.png'
           },
           {
-            title: 'قطع غيار إيفيكو S-Way عالية الأداء',
-            subtitle: 'مكونات عالية الأداء للأساطيل الحديثة',
+            title: 'إيفيكو S-Way عالية الأداء',
+            subtitle: 'مكونات متميزة للأساطيل التجارية الحديثة',
+            cta: 'كتالوج S-Way',
             image: '/lovable-uploads/9593024c-17bd-4a70-a67c-ea93154a27fd.png'
           },
           {
-            title: 'تميز شاحنات مان',
-            subtitle: 'قطع غيار مان عالية الجودة للموثوقية القصوى',
+            title: 'تميز شاحنات مان الألمانية',
+            subtitle: 'قطع مان الأصلية للموثوقية والأداء الفائق',
+            cta: 'قطع مان',
             image: '/lovable-uploads/8b5c93e9-e150-4916-9d20-92cd6e8d45a4.png'
           }
         ]
       },
       brands: {
-        title: 'وكيل معتمد للعلامات التجارية الرائدة',
-        subtitle: 'قطع غيار عالية الجودة من مصنعين موثوقين',
+        title: 'شريك معتمد للعلامات التجارية الرائدة',
+        subtitle: 'قطع غيار شاحنات عالية الجودة من مصنعين مشهورين عالمياً',
         iveco: {
           name: 'إيفيكو',
-          description: 'مجموعة كاملة من قطع غيار شاحنات إيفيكو'
+          description: 'مجموعة كاملة من قطع إيفيكو الأصلية والمكونات المتوافقة المتميزة'
         },
         man: {
           name: 'مان',
-          description: 'قطع غيار مان الأصلية للأداء الأمثل'
+          description: 'قطع مان الأصلية للأداء الأمثل وطول عمر الشاحنة'
         },
         zf: {
           name: 'ZF',
-          description: 'حلول متقدمة لناقل الحركة ونظام الدفع من ZF'
+          description: 'حلول تقنية متقدمة لناقل الحركة ونظام الدفع من ZF'
         }
       },
-      services: {
-        title: 'خدمات مهنية',
+      features: {
+        title: 'ليش تختار الرِيم؟',
         items: [
           {
-            title: 'استشارة قطع الغيار',
-            description: 'إرشاد خبير لاختيار القطع والتوافق'
+            icon: Award,
+            title: 'جودة معتمدة',
+            description: 'كل القطع تطابق المعايير العالمية ومواصفات المصنع'
           },
           {
-            title: 'دعم التركيب',
-            description: 'تركيب احترافي ومساعدة تقنية'
+            icon: Truck,
+            title: 'خبرة متخصصة',
+            description: 'سنوات من الخبرة في قطع الشاحنات التجارية وحلول الأساطيل'
           },
           {
-            title: 'خدمة الضمان',
-            description: 'ضمان شامل على جميع القطع الأصلية'
-          },
-          {
-            title: 'حلول الأساطيل',
-            description: 'حلول مخصصة للأساطيل التجارية'
+            icon: Star,
+            title: 'خدمة سريعة',
+            description: 'توريد وتوصيل سريع لاحتياجات صيانة الأساطيل العاجلة'
           }
         ]
       },
       contact: {
-        title: 'تواصل معنا',
-        subtitle: 'مستعدون لمساعدتك في احتياجات قطع غيار الشاحنات',
+        title: 'تواصل مع الرِيم',
+        subtitle: 'مستعدين نساعدك في كل احتياجات قطع غيار الشاحنات التجارية',
         phone: '+966 50 410 6845',
-        email: 'info@truckparts.sa',
-        location: 'عرض الموقع',
-        whatsapp: 'محادثة واتساب'
+        email: 'info@alreem-parts.sa',
+        location: 'شوف موقعنا',
+        whatsapp: 'واتساب الحين'
       }
     }
   };
@@ -174,7 +178,7 @@ const Index = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % currentContent.hero.slides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, [currentContent.hero.slides.length]);
 
@@ -191,45 +195,44 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-background ${language === 'ar' ? 'rtl' : 'ltr'}`} dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <div className={`min-h-screen bg-background ${language === 'ar' ? 'rtl font-arabic' : 'ltr font-english'}`} dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Fixed WhatsApp Button */}
       <a
         href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20BA5A] transition-colors duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20BA5A] transition-all duration-300 hover:scale-110 whatsapp-float animate-pulse-subtle"
         aria-label="Contact us on WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-40 border-b">
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-40 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-primary">
-                TruckParts
-              </div>
+              <img 
+                src="/lovable-uploads/27ada82d-e324-49ad-b143-e7a842cbf645.png" 
+                alt="ALREEM Logo" 
+                className="h-12 w-auto brand-logo-hover"
+              />
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors nav-link">
+              <a href="#home" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
                 {currentContent.nav.home}
               </a>
-              <a href="#brands" className="text-foreground hover:text-primary transition-colors nav-link">
+              <a href="#brands" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
                 {currentContent.nav.brands}
               </a>
-              <a href="#catalog" className="text-foreground hover:text-primary transition-colors nav-link">
+              <a href="#catalog" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
                 {currentContent.nav.catalog}
               </a>
-              <a href="#services" className="text-foreground hover:text-primary transition-colors nav-link">
-                {currentContent.nav.services}
-              </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors nav-link">
+              <a href="#about" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
                 {currentContent.nav.about}
               </a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors nav-link">
+              <a href="#contact" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
                 {currentContent.nav.contact}
               </a>
             </div>
@@ -239,10 +242,10 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 min-w-[110px] justify-center"
+                className="flex items-center gap-2 min-w-[120px] justify-center hover:scale-105 transition-all duration-300 border-2 hover:border-primary"
               >
                 <Globe className="h-4 w-4" />
-                <span className="font-medium">
+                <span className="font-semibold">
                   {language === 'en' ? 'العربية' : 'English'}
                 </span>
               </Button>
@@ -257,8 +260,8 @@ const Index = () => {
           {currentContent.hero.slides.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              className={`absolute inset-0 transition-all duration-1000 ${
+                index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
               }`}
             >
               <img
@@ -266,17 +269,17 @@ const Index = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white max-w-4xl mx-auto px-4">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-6 slide-title">
+                <div className="text-center text-white max-w-5xl mx-auto px-4 animate-fade-in-up">
+                  <h1 className="text-5xl md:text-7xl font-bold mb-8 slide-title leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-xl md:text-2xl mb-8 opacity-90">
+                  <p className="text-xl md:text-3xl mb-10 opacity-95 font-light">
                     {slide.subtitle}
                   </p>
-                  <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90">
-                    {currentContent.contact.whatsapp}
+                  <Button size="lg" className="text-lg px-10 py-6 bg-primary hover:bg-primary/90 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                    {slide.cta}
                   </Button>
                 </div>
               </div>
@@ -287,24 +290,24 @@ const Index = () => {
         {/* Slideshow Controls */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm hover:scale-110"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm"
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm hover:scale-110"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
           {currentContent.hero.slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-4 h-4 rounded-full transition-all duration-300 ${
                 index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
               }`}
             />
@@ -313,142 +316,159 @@ const Index = () => {
       </section>
 
       {/* Brand Logos Section */}
-      <section id="brands" className="py-20 bg-gradient-to-b from-muted/30 to-background">
+      <section id="brands" className="py-24 bg-gradient-to-b from-muted/30 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in">
               {currentContent.brands.title}
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {currentContent.brands.subtitle}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 card-hover group">
-              <CardContent className="pt-6">
-                <div className="h-24 flex items-center justify-center mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+            {/* IVECO - Larger */}
+            <Card className="text-center p-10 hover:shadow-2xl transition-all duration-500 card-hover group transform hover:-translate-y-2">
+              <CardContent className="pt-8">
+                <div className="h-32 flex items-center justify-center mb-8">
                   <img 
                     src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" 
                     alt="IVECO Logo" 
-                    className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                    className="h-24 object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{currentContent.brands.iveco.name}</h3>
-                <p className="text-muted-foreground">{currentContent.brands.iveco.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-primary">{currentContent.brands.iveco.name}</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">{currentContent.brands.iveco.description}</p>
               </CardContent>
             </Card>
             
-            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 card-hover group">
-              <CardContent className="pt-6">
-                <div className="h-24 flex items-center justify-center mb-6">
+            {/* MAN */}
+            <Card className="text-center p-10 hover:shadow-2xl transition-all duration-500 card-hover group transform hover:-translate-y-2">
+              <CardContent className="pt-8">
+                <div className="h-32 flex items-center justify-center mb-8">
                   <img 
                     src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" 
                     alt="MAN Logo" 
-                    className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                    className="h-20 object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{currentContent.brands.man.name}</h3>
-                <p className="text-muted-foreground">{currentContent.brands.man.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-primary">{currentContent.brands.man.name}</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">{currentContent.brands.man.description}</p>
               </CardContent>
             </Card>
             
-            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 card-hover group">
-              <CardContent className="pt-6">
-                <div className="h-24 flex items-center justify-center mb-6">
+            {/* ZF */}
+            <Card className="text-center p-10 hover:shadow-2xl transition-all duration-500 card-hover group transform hover:-translate-y-2">
+              <CardContent className="pt-8">
+                <div className="h-32 flex items-center justify-center mb-8">
                   <img 
                     src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" 
                     alt="ZF Logo" 
-                    className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                    className="h-20 object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{currentContent.brands.zf.name}</h3>
-                <p className="text-muted-foreground">{currentContent.brands.zf.description}</p>
+                <h3 className="text-2xl font-bold mb-4 text-primary">{currentContent.brands.zf.name}</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">{currentContent.brands.zf.description}</p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20">
+      {/* Features Section */}
+      <section className="py-24 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              {currentContent.services.title}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              {currentContent.features.title}
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {currentContent.services.items.map((service, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-all duration-300 card-hover">
-                <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {currentContent.features.items.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <Card key={index} className="text-center p-8 hover:shadow-xl transition-all duration-500 card-hover group border-0 bg-white/80 backdrop-blur-sm">
+                  <CardContent className="pt-8">
+                    <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                      <IconComponent className="h-10 w-10 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-b from-background to-muted/30">
+      <section id="contact" className="py-24 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               {currentContent.contact.title}
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {currentContent.contact.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6 card-hover">
-              <CardContent className="pt-6">
-                <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Phone</h3>
-                <a href={`tel:${currentContent.contact.phone}`} className="text-primary hover:underline">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="pt-8">
+                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <Phone className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold mb-3 text-lg">Phone</h3>
+                <a href={`tel:${currentContent.contact.phone}`} className="text-primary hover:underline text-lg font-medium">
                   {currentContent.contact.phone}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 card-hover">
-              <CardContent className="pt-6">
-                <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Email</h3>
-                <a href={`mailto:${currentContent.contact.email}`} className="text-primary hover:underline">
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="pt-8">
+                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <Mail className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold mb-3 text-lg">Email</h3>
+                <a href={`mailto:${currentContent.contact.email}`} className="text-primary hover:underline text-lg font-medium">
                   {currentContent.contact.email}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 card-hover">
-              <CardContent className="pt-6">
-                <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Location</h3>
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="pt-8">
+                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <MapPin className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold mb-3 text-lg">Location</h3>
                 <a 
                   href="https://maps.app.goo.gl/Q55pRMTiUPafR1736" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline text-lg font-medium"
                 >
                   {currentContent.contact.location}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 card-hover">
-              <CardContent className="pt-6">
-                <MessageCircle className="h-12 w-12 text-[#25D366] mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">WhatsApp</h3>
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="pt-8">
+                <div className="mx-auto w-16 h-16 bg-[#25D366]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#25D366]/20 transition-colors duration-300">
+                  <MessageCircle className="h-8 w-8 text-[#25D366]" />
+                </div>
+                <h3 className="font-bold mb-3 text-lg">WhatsApp</h3>
                 <a 
                   href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#25D366] hover:underline"
+                  className="text-[#25D366] hover:underline text-lg font-medium"
                 >
                   {currentContent.contact.whatsapp}
                 </a>
@@ -457,8 +477,8 @@ const Index = () => {
           </div>
 
           {/* Google Maps Embed */}
-          <div className="mt-16">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="mb-16">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-border/20">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.3962408804855!2d46.6722!3d24.7136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDAzMDguMCJF!5e0!3m2!1sen!2ssa!4v1625097200000!5m2!1sen!2ssa"
                 width="100%"
@@ -467,7 +487,8 @@ const Index = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Shop Location"
+                title="ALREEM Shop Location"
+                className="hover:scale-105 transition-transform duration-500"
               ></iframe>
             </div>
           </div>
@@ -475,22 +496,26 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12">
+      <footer className="bg-primary text-primary-foreground py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="text-2xl font-bold mb-4">TruckParts</div>
-            <p className="text-primary-foreground/80 mb-4">
+            <img 
+              src="/lovable-uploads/27ada82d-e324-49ad-b143-e7a842cbf645.png" 
+              alt="ALREEM Logo" 
+              className="h-16 mx-auto mb-6 brightness-0 invert"
+            />
+            <p className="text-primary-foreground/90 mb-8 text-lg">
               {language === 'en' 
-                ? 'Your trusted partner for commercial truck parts' 
-                : 'شريكك الموثوق لقطع غيار الشاحنات التجارية'
+                ? 'Your trusted partner for premium commercial truck parts' 
+                : 'شريكك الموثوق لقطع غيار الشاحنات التجارية المتميزة'
               }
             </p>
-            <div className="flex justify-center items-center space-x-6">
-              <img src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" alt="IVECO" className="h-8 opacity-80" />
+            <div className="flex justify-center items-center space-x-8">
+              <img src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" alt="IVECO" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
               <span className="text-primary-foreground/60">•</span>
-              <img src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" alt="MAN" className="h-8 opacity-80" />
+              <img src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" alt="MAN" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
               <span className="text-primary-foreground/60">•</span>
-              <img src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" alt="ZF" className="h-8 opacity-80" />
+              <img src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" alt="ZF" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </div>
