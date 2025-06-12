@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe, Star, Award, Truck, Send, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe, Star, Award, Truck, Send, X, Settings, Wrench, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -10,6 +9,13 @@ const Index = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessage, setChatMessage] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [chatHistory, setChatHistory] = useState([
+    {
+      type: 'bot',
+      message: language === 'en' ? 'Hello! How can I help you with truck parts today?' : 'مرحباً! كيف يمكنني مساعدتك في قطع غيار الشاحنات اليوم؟',
+      timestamp: new Date()
+    }
+  ]);
 
   const content = {
     en: {
@@ -29,12 +35,6 @@ const Index = () => {
             image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
-            title: 'Advanced Electric Truck Solutions',
-            subtitle: 'Cutting-edge electric truck parts and innovative components',
-            cta: 'View Electric Parts',
-            image: '/lovable-uploads/96350c99-75b3-4a1f-9e6d-b4f97d36d341.png'
-          },
-          {
             title: 'High-Performance IVECO S-Way',
             subtitle: 'Premium performance components for modern commercial fleets',
             cta: 'S-Way Catalog',
@@ -50,7 +50,27 @@ const Index = () => {
       },
       brands: {
         title: 'Authorized Partner for Leading Brands',
-        subtitle: 'Premium quality truck parts from world-renowned manufacturers'
+        subtitle: 'Premium quality truck parts from world-renowned manufacturers',
+        items: [
+          {
+            name: 'IVECO',
+            description: 'Italian excellence in commercial vehicles. Original and compatible parts for all IVECO models including Stralis, S-Way, and Daily series.',
+            logo: '/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png',
+            specialties: ['Engine Components', 'Transmission Parts', 'Electrical Systems']
+          },
+          {
+            name: 'MAN',
+            description: 'German engineering precision. Genuine MAN parts for TGX, TGS, and TGL series with guaranteed quality and performance.',
+            logo: '/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png',
+            specialties: ['Brake Systems', 'Suspension', 'Cabin Parts']
+          },
+          {
+            name: 'ZF',
+            description: 'World leader in driveline and chassis technology. Premium ZF transmissions, axles, and steering systems for commercial vehicles.',
+            logo: '/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png',
+            specialties: ['Transmissions', 'Axles', 'Steering Systems']
+          }
+        ]
       },
       features: {
         title: 'Why Choose ALREEM?',
@@ -104,12 +124,6 @@ const Index = () => {
             image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
-            title: 'حلول الشاحنات الكهربائية المتطورة',
-            subtitle: 'قطع غيار حديثة ومكونات مبتكرة للشاحنات الكهربائية',
-            cta: 'اطلع على القطع الكهربائية',
-            image: '/lovable-uploads/96350c99-75b3-4a1f-9e6d-b4f97d36d341.png'
-          },
-          {
             title: 'إيفيكو S-Way عالية الأداء',
             subtitle: 'مكونات متميزة للأساطيل التجارية الحديثة',
             cta: 'كتالوج S-Way',
@@ -125,7 +139,27 @@ const Index = () => {
       },
       brands: {
         title: 'شريك معتمد للعلامات التجارية الرائدة',
-        subtitle: 'قطع غيار شاحنات عالية الجودة من مصنعين مشهورين عالمياً'
+        subtitle: 'قطع غيار شاحنات عالية الجودة من مصنعين مشهورين عالمياً',
+        items: [
+          {
+            name: 'إيفيكو',
+            description: 'التميز الإيطالي في المركبات التجارية. قطع أصلية ومتوافقة لجميع موديلات إيفيكو بما في ذلك سترالس و S-Way وسلسلة ديلي.',
+            logo: '/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png',
+            specialties: ['مكونات المحرك', 'قطع ناقل الحركة', 'الأنظمة الكهربائية']
+          },
+          {
+            name: 'مان',
+            description: 'دقة الهندسة الألمانية. قطع مان الأصلية لسلاسل TGX و TGS و TGL مع ضمان الجودة والأداء.',
+            logo: '/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png',
+            specialties: ['أنظمة الفرامل', 'نظام التعليق', 'قطع الكابينة']
+          },
+          {
+            name: 'زد إف',
+            description: 'الرائد عالمياً في تقنية نقل الحركة والهيكل. ناقلات حركة وأكسل وأنظمة توجيه ZF المتميزة للمركبات التجارية.',
+            logo: '/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png',
+            specialties: ['ناقلات الحركة', 'الأكسل', 'أنظمة التوجيه']
+          }
+        ]
       },
       features: {
         title: 'ليش تختار الرِيم؟',
@@ -173,6 +207,16 @@ const Index = () => {
     return () => clearInterval(timer);
   }, [currentContent.hero.slides.length]);
 
+  useEffect(() => {
+    setChatHistory([
+      {
+        type: 'bot',
+        message: language === 'en' ? 'Hello! How can I help you with truck parts today?' : 'مرحباً! كيف يمكنني مساعدتك في قطع غيار الشاحنات اليوم؟',
+        timestamp: new Date()
+      }
+    ]);
+  }, [language]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % currentContent.hero.slides.length);
   };
@@ -188,7 +232,15 @@ const Index = () => {
   const sendChatMessage = async () => {
     if (!chatMessage.trim() || isSending) return;
     
+    const userMessage = {
+      type: 'user',
+      message: chatMessage,
+      timestamp: new Date()
+    };
+    
+    setChatHistory(prev => [...prev, userMessage]);
     setIsSending(true);
+    
     try {
       const response = await fetch('https://n8n.ahmed.today/webhook/45e1c1fe-5fb9-4f49-b898-32a44a481b60', {
         method: 'POST',
@@ -203,11 +255,25 @@ const Index = () => {
         }),
       });
       
-      console.log('Chat message sent:', response.status);
+      const responseData = await response.json();
+      console.log('Chat response:', responseData);
+      
+      const botMessage = {
+        type: 'bot',
+        message: responseData.reply || (language === 'en' ? 'Thank you for your message. We will get back to you soon!' : 'شكراً لرسالتك. سنتواصل معك قريباً!'),
+        timestamp: new Date()
+      };
+      
+      setChatHistory(prev => [...prev, botMessage]);
       setChatMessage('');
-      setIsChatOpen(false);
     } catch (error) {
       console.error('Error sending chat message:', error);
+      const errorMessage = {
+        type: 'bot',
+        message: language === 'en' ? 'Sorry, there was an error. Please try again or contact us directly.' : 'عذراً، حدث خطأ. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة.',
+        timestamp: new Date()
+      };
+      setChatHistory(prev => [...prev, errorMessage]);
     } finally {
       setIsSending(false);
     }
@@ -226,28 +292,52 @@ const Index = () => {
         <MessageCircle className="h-6 w-6" />
       </a>
 
-      {/* Chat Bot */}
+      {/* Enhanced Chat Bot */}
       <div className="fixed bottom-6 left-6 z-50">
         {!isChatOpen ? (
           <button
             onClick={() => setIsChatOpen(true)}
-            className="bg-primary text-white p-4 rounded-full shadow-xl hover:bg-primary/90 transition-all duration-300 hover:scale-110 animate-pulse-subtle"
+            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-full shadow-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 hover:scale-110 animate-pulse-subtle"
             aria-label="Open chat"
           >
             <MessageCircle className="h-6 w-6" />
           </button>
         ) : (
-          <div className="bg-white rounded-lg shadow-2xl border border-border/20 w-80 max-w-[90vw]">
-            <div className="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
+          <div className="bg-white rounded-lg shadow-2xl border border-border/20 w-96 max-w-[90vw] max-h-[500px] flex flex-col">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-lg flex justify-between items-center">
               <h3 className="font-semibold">{currentContent.chat.title}</h3>
               <button
                 onClick={() => setIsChatOpen(false)}
-                className="text-white hover:text-gray-200"
+                className="text-white hover:text-gray-200 transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="p-4">
+            
+            {/* Chat History */}
+            <div className="flex-1 p-4 overflow-y-auto max-h-80 space-y-2">
+              {chatHistory.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`chat-message ${msg.type} ${msg.type === 'user' ? 'ml-auto' : 'mr-auto'}`}
+                >
+                  <div className="text-sm">{msg.message}</div>
+                  <div className="text-xs opacity-70 mt-1">
+                    {msg.timestamp.toLocaleTimeString()}
+                  </div>
+                </div>
+              ))}
+              {isSending && (
+                <div className="chat-message bot mr-auto">
+                  <div className="text-sm">
+                    {language === 'en' ? 'Typing...' : 'يكتب...'}
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            {/* Input Area */}
+            <div className="p-4 border-t border-border/20">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -255,14 +345,14 @@ const Index = () => {
                   onChange={(e) => setChatMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && sendChatMessage()}
                   placeholder={currentContent.chat.placeholder}
-                  className="flex-1 border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="flex-1 border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   disabled={isSending}
                 />
                 <Button
                   onClick={sendChatMessage}
                   disabled={!chatMessage.trim() || isSending}
                   size="sm"
-                  className="px-3"
+                  className="px-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
                 >
                   <Send className="h-4 w-4" />
                 </Button>
@@ -272,8 +362,8 @@ const Index = () => {
         )}
       </div>
 
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-40 border-b border-border/50">
+      {/* Navigation with Brand Colors */}
+      <nav className="fixed top-0 w-full bg-gradient-to-r from-blue-800 to-blue-900 backdrop-blur-md shadow-lg z-40 border-b border-blue-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
@@ -285,19 +375,19 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
+              <a href="#home" className="nav-link font-medium">
                 {currentContent.nav.home}
               </a>
-              <a href="#brands" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
+              <a href="#brands" className="nav-link font-medium">
                 {currentContent.nav.brands}
               </a>
-              <a href="#catalog" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
+              <a href="#catalog" className="nav-link font-medium">
                 {currentContent.nav.catalog}
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
+              <a href="#about" className="nav-link font-medium">
                 {currentContent.nav.about}
               </a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-all duration-300 nav-link font-medium">
+              <a href="#contact" className="nav-link font-medium">
                 {currentContent.nav.contact}
               </a>
             </div>
@@ -307,7 +397,7 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 min-w-[120px] justify-center hover:scale-105 transition-all duration-300 border-2 hover:border-primary bg-white"
+                className="flex items-center gap-2 min-w-[120px] justify-center hover:scale-105 transition-all duration-300 border-2 border-orange-400 hover:border-orange-300 bg-white/90 hover:bg-white text-blue-800 hover:text-blue-900"
               >
                 <Globe className="h-4 w-4" />
                 <span className="font-semibold">
@@ -334,7 +424,7 @@ const Index = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-blue-700/50"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white max-w-5xl mx-auto px-4 animate-fade-in-up">
                   <h1 className="text-5xl md:text-7xl font-bold mb-8 slide-title leading-tight">
@@ -343,7 +433,7 @@ const Index = () => {
                   <p className="text-xl md:text-3xl mb-10 opacity-95 font-light">
                     {slide.subtitle}
                   </p>
-                  <Button size="lg" className="text-lg px-10 py-6 bg-primary hover:bg-primary/90 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                  <Button size="lg" className="text-lg px-10 py-6 btn-professional transform hover:scale-105 transition-all duration-300 shadow-2xl">
                     {slide.cta}
                   </Button>
                 </div>
@@ -373,67 +463,67 @@ const Index = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                index === currentSlide ? 'bg-orange-400 scale-125' : 'bg-white/50 hover:bg-white/75'
               }`}
             />
           ))}
         </div>
       </section>
 
-      {/* Brand Logos Section */}
-      <section id="brands" className="py-24 bg-gradient-to-b from-muted/30 to-background">
+      {/* Enhanced Brand Cards Section */}
+      <section id="brands" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
               {currentContent.brands.title}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {currentContent.brands.subtitle}
             </p>
           </div>
           
-          <div className="flex justify-center items-center gap-16 md:gap-24">
-            {/* IVECO - Larger */}
-            <div className="text-center group">
-              <div className="h-32 flex items-center justify-center mb-4">
-                <img 
-                  src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" 
-                  alt="IVECO" 
-                  className="h-24 object-contain group-hover:scale-110 transition-transform duration-500 card-hover"
-                />
-              </div>
-            </div>
-            
-            {/* MAN */}
-            <div className="text-center group">
-              <div className="h-32 flex items-center justify-center mb-4">
-                <img 
-                  src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" 
-                  alt="MAN" 
-                  className="h-16 object-contain group-hover:scale-110 transition-transform duration-500 card-hover"
-                />
-              </div>
-            </div>
-            
-            {/* ZF */}
-            <div className="text-center group">
-              <div className="h-32 flex items-center justify-center mb-4">
-                <img 
-                  src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" 
-                  alt="ZF" 
-                  className="h-16 object-contain group-hover:scale-110 transition-transform duration-500 card-hover"
-                />
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {currentContent.brands.items.map((brand, index) => (
+              <Card key={index} className="brand-card hover:shadow-2xl transition-all duration-500 card-hover group border-0 overflow-hidden">
+                <CardContent className="p-8">
+                  <div className="text-center mb-6">
+                    <div className="h-24 flex items-center justify-center mb-6 bg-white/50 rounded-xl p-4">
+                      <img 
+                        src={brand.logo} 
+                        alt={brand.name} 
+                        className="h-16 object-contain group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{brand.name}</h3>
+                    <p className="text-gray-600 leading-relaxed mb-6">{brand.description}</p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-900 flex items-center gap-2">
+                      <Settings className="h-4 w-4 text-orange-500" />
+                      {language === 'en' ? 'Specialties:' : 'التخصصات:'}
+                    </h4>
+                    <div className="space-y-2">
+                      {brand.specialties.map((specialty, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                          <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                          {specialty}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-primary/5">
+      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {currentContent.features.title}
             </h2>
           </div>
@@ -444,11 +534,11 @@ const Index = () => {
               return (
                 <Card key={index} className="text-center p-8 hover:shadow-xl transition-all duration-500 card-hover group border-0 bg-white/80 backdrop-blur-sm">
                   <CardContent className="pt-8">
-                    <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                      <IconComponent className="h-10 w-10 text-primary" />
+                    <div className="mx-auto w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-6 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
+                      <IconComponent className="h-10 w-10 text-orange-600" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -458,70 +548,70 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gradient-to-b from-background to-muted/30">
+      <section id="contact" className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {currentContent.contact.title}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {currentContent.contact.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
               <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <Phone className="h-8 w-8 text-primary" />
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-6 group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-300">
+                  <Phone className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg">Phone</h3>
-                <a href={`tel:${currentContent.contact.phone}`} className="text-primary hover:underline text-lg font-medium">
+                <h3 className="font-bold mb-3 text-lg text-gray-900">Phone</h3>
+                <a href={`tel:${currentContent.contact.phone}`} className="text-blue-600 hover:text-blue-700 hover:underline text-lg font-medium transition-colors">
                   {currentContent.contact.phone}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
               <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <Mail className="h-8 w-8 text-primary" />
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-6 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
+                  <Mail className="h-8 w-8 text-orange-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg">Email</h3>
-                <a href={`mailto:${currentContent.contact.email}`} className="text-primary hover:underline text-lg font-medium">
+                <h3 className="font-bold mb-3 text-lg text-gray-900">Email</h3>
+                <a href={`mailto:${currentContent.contact.email}`} className="text-orange-600 hover:text-orange-700 hover:underline text-lg font-medium transition-colors">
                   {currentContent.contact.email}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
               <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <MapPin className="h-8 w-8 text-primary" />
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mb-6 group-hover:from-red-200 group-hover:to-red-300 transition-all duration-300">
+                  <MapPin className="h-8 w-8 text-red-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg">Location</h3>
+                <h3 className="font-bold mb-3 text-lg text-gray-900">Location</h3>
                 <a 
                   href="https://maps.app.goo.gl/Q55pRMTiUPafR1736" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline text-lg font-medium"
+                  className="text-red-600 hover:text-red-700 hover:underline text-lg font-medium transition-colors"
                 >
                   {currentContent.contact.location}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group">
+            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
               <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-[#25D366]/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#25D366]/20 transition-colors duration-300">
-                  <MessageCircle className="h-8 w-8 text-[#25D366]" />
+                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-6 group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300">
+                  <MessageCircle className="h-8 w-8 text-green-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg">WhatsApp</h3>
+                <h3 className="font-bold mb-3 text-lg text-gray-900">WhatsApp</h3>
                 <a 
                   href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#25D366] hover:underline text-lg font-medium"
+                  className="text-green-600 hover:text-green-700 hover:underline text-lg font-medium transition-colors"
                 >
                   {currentContent.contact.whatsapp}
                 </a>
@@ -529,11 +619,11 @@ const Index = () => {
             </Card>
           </div>
 
-          {/* Google Maps Embed - Fixed */}
+          {/* Fixed Google Maps Embed */}
           <div className="mb-16">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-border/20 max-w-5xl mx-auto">
+            <div className="maps-container bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-5xl mx-auto">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d924.8607746134724!2d46.67220257077407!3d24.71360279743582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0c3b5c8b1f1f%3A0x1234567890abcdef!2z2KfZhNix2YrZhQ!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.140919439!2d46.67220257077407!3d24.71360279743582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0c3b5c8b1f1f%3A0x1234567890abcdef!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
@@ -549,7 +639,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-16">
+      <footer className="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <img 
@@ -557,7 +647,7 @@ const Index = () => {
               alt="ALREEM Logo" 
               className="h-16 mx-auto mb-6 brightness-0 invert"
             />
-            <p className="text-primary-foreground/90 mb-8 text-lg">
+            <p className="text-blue-100 mb-8 text-lg">
               {language === 'en' 
                 ? 'Your trusted partner for premium commercial truck parts' 
                 : 'شريكك الموثوق لقطع غيار الشاحنات التجارية المتميزة'
@@ -565,9 +655,9 @@ const Index = () => {
             </p>
             <div className="flex justify-center items-center space-x-8">
               <img src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" alt="IVECO" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              <span className="text-primary-foreground/60">•</span>
+              <span className="text-blue-300">•</span>
               <img src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" alt="MAN" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              <span className="text-primary-foreground/60">•</span>
+              <span className="text-blue-300">•</span>
               <img src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" alt="ZF" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
