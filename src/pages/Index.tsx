@@ -21,19 +21,24 @@ const Index = () => {
       hero: {
         slides: [
           {
-            title: 'Quality Parts for Professional Fleets',
-            subtitle: 'Certified IVECO • MAN • ZF Components',
-            image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1920&q=80'
+            title: 'Premium IVECO Parts & Solutions',
+            subtitle: 'Professional parts for IVECO Stralis and S-Way models',
+            image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
-            title: 'Trusted Commercial Vehicle Solutions',
-            subtitle: 'Premium Parts & Professional Service',
-            image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1920&q=80'
+            title: 'Modern IVECO Electric Solutions',
+            subtitle: 'Advanced electric truck parts and components',
+            image: '/lovable-uploads/96350c99-75b3-4a1f-9e6d-b4f97d36d341.png'
           },
           {
-            title: 'Expert Installation & Support',
-            subtitle: 'Your Reliable Parts Partner',
-            image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1920&q=80'
+            title: 'IVECO S-Way Performance Parts',
+            subtitle: 'High-performance components for modern fleets',
+            image: '/lovable-uploads/9593024c-17bd-4a70-a67c-ea93154a27fd.png'
+          },
+          {
+            title: 'MAN Truck Excellence',
+            subtitle: 'Quality MAN parts for maximum reliability',
+            image: '/lovable-uploads/8b5c93e9-e150-4916-9d20-92cd6e8d45a4.png'
           }
         ]
       },
@@ -95,19 +100,24 @@ const Index = () => {
       hero: {
         slides: [
           {
-            title: 'قطع غيار عالية الجودة للأساطيل المهنية',
-            subtitle: 'مكونات معتمدة من إيفيكو • مان • ZF',
-            image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1920&q=80'
+            title: 'قطع غيار إيفيكو المتميزة والحلول',
+            subtitle: 'قطع غيار احترافية لموديلات إيفيكو سترالس و S-Way',
+            image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
-            title: 'حلول موثوقة للمركبات التجارية',
-            subtitle: 'قطع غيار متميزة وخدمة احترافية',
-            image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1920&q=80'
+            title: 'حلول إيفيكو الكهربائية الحديثة',
+            subtitle: 'قطع غيار ومكونات متقدمة للشاحنات الكهربائية',
+            image: '/lovable-uploads/96350c99-75b3-4a1f-9e6d-b4f97d36d341.png'
           },
           {
-            title: 'تركيب خبير ودعم فني',
-            subtitle: 'شريكك الموثوق لقطع الغيار',
-            image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1920&q=80'
+            title: 'قطع غيار إيفيكو S-Way عالية الأداء',
+            subtitle: 'مكونات عالية الأداء للأساطيل الحديثة',
+            image: '/lovable-uploads/9593024c-17bd-4a70-a67c-ea93154a27fd.png'
+          },
+          {
+            title: 'تميز شاحنات مان',
+            subtitle: 'قطع غيار مان عالية الجودة للموثوقية القصوى',
+            image: '/lovable-uploads/8b5c93e9-e150-4916-9d20-92cd6e8d45a4.png'
           }
         ]
       },
@@ -187,7 +197,8 @@ const Index = () => {
         href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20BA5A] transition-colors duration-300"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20BA5A] transition-colors duration-300 hover:scale-110"
+        aria-label="Contact us on WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
@@ -203,35 +214,39 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors">
+              <a href="#home" className="text-foreground hover:text-primary transition-colors nav-link">
                 {currentContent.nav.home}
               </a>
-              <a href="#brands" className="text-foreground hover:text-primary transition-colors">
+              <a href="#brands" className="text-foreground hover:text-primary transition-colors nav-link">
                 {currentContent.nav.brands}
               </a>
-              <a href="#catalog" className="text-foreground hover:text-primary transition-colors">
+              <a href="#catalog" className="text-foreground hover:text-primary transition-colors nav-link">
                 {currentContent.nav.catalog}
               </a>
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">
+              <a href="#services" className="text-foreground hover:text-primary transition-colors nav-link">
                 {currentContent.nav.services}
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              <a href="#about" className="text-foreground hover:text-primary transition-colors nav-link">
                 {currentContent.nav.about}
               </a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+              <a href="#contact" className="text-foreground hover:text-primary transition-colors nav-link">
                 {currentContent.nav.contact}
               </a>
             </div>
 
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleLanguage}
-              className="flex items-center gap-2"
-            >
-              <Globe className="h-4 w-4" />
-              {language === 'en' ? 'العربية' : 'English'}
-            </Button>
+            <div className="fixed-language-toggle">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 min-w-[110px] justify-center"
+              >
+                <Globe className="h-4 w-4" />
+                <span className="font-medium">
+                  {language === 'en' ? 'العربية' : 'English'}
+                </span>
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
@@ -251,16 +266,16 @@ const Index = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white max-w-4xl mx-auto px-4">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6 slide-title">
                     {slide.title}
                   </h1>
                   <p className="text-xl md:text-2xl mb-8 opacity-90">
                     {slide.subtitle}
                   </p>
-                  <Button size="lg" className="text-lg px-8 py-4">
+                  <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90">
                     {currentContent.contact.whatsapp}
                   </Button>
                 </div>
@@ -272,13 +287,13 @@ const Index = () => {
         {/* Slideshow Controls */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
@@ -289,8 +304,8 @@ const Index = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-white' : 'bg-white/50'
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
               }`}
             />
           ))}
@@ -298,7 +313,7 @@ const Index = () => {
       </section>
 
       {/* Brand Logos Section */}
-      <section id="brands" className="py-20 bg-muted/30">
+      <section id="brands" className="py-20 bg-gradient-to-b from-muted/30 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -310,30 +325,42 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 card-hover group">
               <CardContent className="pt-6">
-                <div className="h-20 flex items-center justify-center mb-6">
-                  <div className="text-4xl font-bold text-primary">IVECO</div>
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <img 
+                    src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" 
+                    alt="IVECO Logo" 
+                    className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{currentContent.brands.iveco.name}</h3>
                 <p className="text-muted-foreground">{currentContent.brands.iveco.description}</p>
               </CardContent>
             </Card>
             
-            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 card-hover group">
               <CardContent className="pt-6">
-                <div className="h-20 flex items-center justify-center mb-6">
-                  <div className="text-4xl font-bold text-primary">MAN</div>
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <img 
+                    src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" 
+                    alt="MAN Logo" 
+                    className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{currentContent.brands.man.name}</h3>
                 <p className="text-muted-foreground">{currentContent.brands.man.description}</p>
               </CardContent>
             </Card>
             
-            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+            <Card className="text-center p-8 hover:shadow-xl transition-all duration-300 card-hover group">
               <CardContent className="pt-6">
-                <div className="h-20 flex items-center justify-center mb-6">
-                  <div className="text-4xl font-bold text-primary">ZF</div>
+                <div className="h-24 flex items-center justify-center mb-6">
+                  <img 
+                    src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" 
+                    alt="ZF Logo" 
+                    className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{currentContent.brands.zf.name}</h3>
                 <p className="text-muted-foreground">{currentContent.brands.zf.description}</p>
@@ -354,7 +381,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {currentContent.services.items.map((service, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center p-6 hover:shadow-lg transition-all duration-300 card-hover">
                 <CardContent className="pt-6">
                   <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
                   <p className="text-muted-foreground">{service.description}</p>
@@ -366,7 +393,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-muted/30">
+      <section id="contact" className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -378,7 +405,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 card-hover">
               <CardContent className="pt-6">
                 <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Phone</h3>
@@ -388,7 +415,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 card-hover">
               <CardContent className="pt-6">
                 <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
@@ -398,7 +425,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 card-hover">
               <CardContent className="pt-6">
                 <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Location</h3>
@@ -413,7 +440,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 card-hover">
               <CardContent className="pt-6">
                 <MessageCircle className="h-12 w-12 text-[#25D366] mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">WhatsApp</h3>
@@ -458,12 +485,12 @@ const Index = () => {
                 : 'شريكك الموثوق لقطع غيار الشاحنات التجارية'
               }
             </p>
-            <div className="flex justify-center space-x-6">
-              <span>IVECO</span>
-              <span>•</span>
-              <span>MAN</span>
-              <span>•</span>
-              <span>ZF</span>
+            <div className="flex justify-center items-center space-x-6">
+              <img src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" alt="IVECO" className="h-8 opacity-80" />
+              <span className="text-primary-foreground/60">•</span>
+              <img src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" alt="MAN" className="h-8 opacity-80" />
+              <span className="text-primary-foreground/60">•</span>
+              <img src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" alt="ZF" className="h-8 opacity-80" />
             </div>
           </div>
         </div>
