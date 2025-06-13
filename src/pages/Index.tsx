@@ -286,10 +286,10 @@ const Index = () => {
         href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:bg-[#20BA5A] transition-all duration-300 hover:scale-110 whatsapp-float animate-pulse-subtle"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-xl hover:bg-[#20BA5A] transition-all duration-300 hover:scale-110 whatsapp-float animate-pulse-subtle"
         aria-label="Contact us on WhatsApp"
       >
-        <MessageCircle className="h-6 w-6" />
+        <MessageCircle className="h-5 w-5" />
       </a>
 
       {/* Enhanced Chat Bot */}
@@ -297,31 +297,31 @@ const Index = () => {
         {!isChatOpen ? (
           <button
             onClick={() => setIsChatOpen(true)}
-            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-full shadow-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 hover:scale-110 animate-pulse-subtle"
+            className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 rounded-full shadow-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-110 animate-pulse-subtle"
             aria-label="Open chat"
           >
-            <MessageCircle className="h-6 w-6" />
+            <MessageCircle className="h-5 w-5" />
           </button>
         ) : (
-          <div className="bg-white rounded-lg shadow-2xl border border-border/20 w-96 max-w-[90vw] max-h-[500px] flex flex-col">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-lg flex justify-between items-center">
-              <h3 className="font-semibold">{currentContent.chat.title}</h3>
+          <div className="bg-white rounded-lg shadow-2xl border border-border/20 w-80 max-w-[85vw] max-h-[450px] flex flex-col chat-bot-mobile">
+            <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 rounded-t-lg flex justify-between items-center">
+              <h3 className="font-semibold text-sm">{currentContent.chat.title}</h3>
               <button
                 onClick={() => setIsChatOpen(false)}
                 className="text-white hover:text-gray-200 transition-colors"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             </div>
             
             {/* Chat History */}
-            <div className="flex-1 p-4 overflow-y-auto max-h-80 space-y-2">
+            <div className="flex-1 p-3 overflow-y-auto max-h-72 space-y-2">
               {chatHistory.map((msg, index) => (
                 <div
                   key={index}
                   className={`chat-message ${msg.type} ${msg.type === 'user' ? 'ml-auto' : 'mr-auto'}`}
                 >
-                  <div className="text-sm">{msg.message}</div>
+                  <div className="text-xs">{msg.message}</div>
                   <div className="text-xs opacity-70 mt-1">
                     {msg.timestamp.toLocaleTimeString()}
                   </div>
@@ -329,7 +329,7 @@ const Index = () => {
               ))}
               {isSending && (
                 <div className="chat-message bot mr-auto">
-                  <div className="text-sm">
+                  <div className="text-xs">
                     {language === 'en' ? 'Typing...' : 'يكتب...'}
                   </div>
                 </div>
@@ -337,7 +337,7 @@ const Index = () => {
             </div>
             
             {/* Input Area */}
-            <div className="p-4 border-t border-border/20">
+            <div className="p-3 border-t border-border/20">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -345,16 +345,16 @@ const Index = () => {
                   onChange={(e) => setChatMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && sendChatMessage()}
                   placeholder={currentContent.chat.placeholder}
-                  className="flex-1 border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 border border-border rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-orange-500"
                   disabled={isSending}
                 />
                 <Button
                   onClick={sendChatMessage}
                   disabled={!chatMessage.trim() || isSending}
                   size="sm"
-                  className="px-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                  className="px-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-3 w-3" />
                 </Button>
               </div>
             </div>
@@ -362,32 +362,32 @@ const Index = () => {
         )}
       </div>
 
-      {/* Navigation with Brand Colors */}
-      <nav className="fixed top-0 w-full bg-gradient-to-r from-blue-800 to-blue-900 backdrop-blur-md shadow-lg z-40 border-b border-blue-700/50">
+      {/* Navigation with White Background */}
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-40 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <img 
                 src="/lovable-uploads/27ada82d-e324-49ad-b143-e7a842cbf645.png" 
                 alt="ALREEM Logo" 
-                className="h-12 w-auto brand-logo-hover"
+                className="h-10 w-auto brand-logo-hover"
               />
             </div>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="nav-link font-medium">
+            <div className="hidden md:flex items-center space-x-6">
+              <a href="#home" className="nav-link font-medium text-sm">
                 {currentContent.nav.home}
               </a>
-              <a href="#brands" className="nav-link font-medium">
+              <a href="#brands" className="nav-link font-medium text-sm">
                 {currentContent.nav.brands}
               </a>
-              <a href="#catalog" className="nav-link font-medium">
+              <a href="#catalog" className="nav-link font-medium text-sm">
                 {currentContent.nav.catalog}
               </a>
-              <a href="#about" className="nav-link font-medium">
+              <a href="#about" className="nav-link font-medium text-sm">
                 {currentContent.nav.about}
               </a>
-              <a href="#contact" className="nav-link font-medium">
+              <a href="#contact" className="nav-link font-medium text-sm">
                 {currentContent.nav.contact}
               </a>
             </div>
@@ -397,9 +397,9 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 min-w-[120px] justify-center hover:scale-105 transition-all duration-300 border-2 border-orange-400 hover:border-orange-300 bg-white/90 hover:bg-white text-blue-800 hover:text-blue-900"
+                className="flex items-center gap-1 min-w-[90px] justify-center hover:scale-105 transition-all duration-300 border-2 border-orange-400 hover:border-orange-300 bg-white/90 hover:bg-white text-orange-600 hover:text-orange-700 text-xs"
               >
-                <Globe className="h-4 w-4" />
+                <Globe className="h-3 w-3" />
                 <span className="font-semibold">
                   {language === 'en' ? 'العربية' : 'English'}
                 </span>
@@ -409,7 +409,7 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Slideshow */}
+      {/* Hero Slideshow with Minimal Overlay */}
       <section id="home" className="relative h-screen overflow-hidden">
         <div className="relative w-full h-full">
           {currentContent.hero.slides.map((slide, index) => (
@@ -424,16 +424,16 @@ const Index = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-blue-700/50"></div>
+              <div className="absolute inset-0 hero-gradient"></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white max-w-5xl mx-auto px-4 animate-fade-in-up">
-                  <h1 className="text-5xl md:text-7xl font-bold mb-8 slide-title leading-tight">
+                <div className="text-center text-white max-w-4xl mx-auto px-4 animate-fade-in-up">
+                  <h1 className="text-3xl md:text-5xl font-bold mb-4 slide-title leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-xl md:text-3xl mb-10 opacity-95 font-light">
+                  <p className="text-lg md:text-xl mb-6 opacity-95 font-light">
                     {slide.subtitle}
                   </p>
-                  <Button size="lg" className="text-lg px-10 py-6 btn-professional transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                  <Button size="lg" className="text-base px-6 py-3 btn-professional transform hover:scale-105 transition-all duration-300 shadow-2xl">
                     {slide.cta}
                   </Button>
                 </div>
@@ -445,24 +445,24 @@ const Index = () => {
         {/* Slideshow Controls */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm hover:scale-110"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm hover:scale-110"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-5 w-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm hover:scale-110"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 backdrop-blur-sm hover:scale-110"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-5 w-5" />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {currentContent.hero.slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide ? 'bg-orange-400 scale-125' : 'bg-white/50 hover:bg-white/75'
               }`}
             />
@@ -471,42 +471,45 @@ const Index = () => {
       </section>
 
       {/* Enhanced Brand Cards Section */}
-      <section id="brands" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section id="brands" className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in">
               {currentContent.brands.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               {currentContent.brands.subtitle}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {currentContent.brands.items.map((brand, index) => (
               <Card key={index} className="brand-card hover:shadow-2xl transition-all duration-500 card-hover group border-0 overflow-hidden">
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <div className="h-24 flex items-center justify-center mb-6 bg-white/50 rounded-xl p-4">
+                <CardContent className="p-6">
+                  <div className="text-center mb-4">
+                    <div className={`flex items-center justify-center mb-4 bg-white/50 rounded-xl p-4 ${
+                      brand.name === 'IVECO' ? 'h-32' : 'h-24'
+                    }`}>
                       <img 
                         src={brand.logo} 
                         alt={brand.name} 
-                        className="h-16 object-contain group-hover:scale-110 transition-transform duration-500"
+                        className={`object-contain group-hover:scale-110 transition-transform duration-500 ${
+                          brand.name === 'IVECO' ? 'h-20' : 'h-12'
+                        }`}
                       />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{brand.name}</h3>
-                    <p className="text-gray-600 leading-relaxed mb-6">{brand.description}</p>
+                    <p className="text-gray-600 leading-relaxed mb-4 text-sm">{brand.description}</p>
                   </div>
                   
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                      <Settings className="h-4 w-4 text-orange-500" />
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-gray-900 flex items-center gap-2 text-sm">
+                      <Settings className="h-3 w-3 text-orange-500" />
                       {language === 'en' ? 'Specialties:' : 'التخصصات:'}
                     </h4>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       {brand.specialties.map((specialty, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                        <div key={idx} className="flex items-center gap-2 text-xs text-gray-600">
+                          <div className="w-1.5 h-1.5 bg-orange-400 rounded-full"></div>
                           {specialty}
                         </div>
                       ))}
@@ -520,25 +523,25 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {currentContent.features.title}
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {currentContent.features.items.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <Card key={index} className="text-center p-8 hover:shadow-xl transition-all duration-500 card-hover group border-0 bg-white/80 backdrop-blur-sm">
-                  <CardContent className="pt-8">
-                    <div className="mx-auto w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-6 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
-                      <IconComponent className="h-10 w-10 text-orange-600" />
+                <Card key={index} className="text-center p-6 hover:shadow-xl transition-all duration-500 card-hover group border-0 bg-white/80 backdrop-blur-sm">
+                  <CardContent className="pt-6">
+                    <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-4 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
+                      <IconComponent className="h-8 w-8 text-orange-600" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-gray-900">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <h3 className="text-lg font-bold mb-3 text-gray-900">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">{feature.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -548,70 +551,70 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section id="contact" className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {currentContent.contact.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               {currentContent.contact.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
-              <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-6 group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-300">
-                  <Phone className="h-8 w-8 text-blue-600" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="text-center p-6 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0 contact-card">
+              <CardContent className="pt-6">
+                <div className="mx-auto w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-4 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
+                  <Phone className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg text-gray-900">Phone</h3>
-                <a href={`tel:${currentContent.contact.phone}`} className="text-blue-600 hover:text-blue-700 hover:underline text-lg font-medium transition-colors">
+                <h3 className="font-bold mb-2 text-base text-gray-900">Phone</h3>
+                <a href={`tel:${currentContent.contact.phone}`} className="text-orange-600 hover:text-orange-700 hover:underline text-sm font-medium transition-colors">
                   {currentContent.contact.phone}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
-              <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-6 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
-                  <Mail className="h-8 w-8 text-orange-600" />
+            <Card className="text-center p-6 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0 contact-card">
+              <CardContent className="pt-6">
+                <div className="mx-auto w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-4 group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-300">
+                  <Mail className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg text-gray-900">Email</h3>
-                <a href={`mailto:${currentContent.contact.email}`} className="text-orange-600 hover:text-orange-700 hover:underline text-lg font-medium transition-colors">
+                <h3 className="font-bold mb-2 text-base text-gray-900">Email</h3>
+                <a href={`mailto:${currentContent.contact.email}`} className="text-blue-600 hover:text-blue-700 hover:underline text-sm font-medium transition-colors">
                   {currentContent.contact.email}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
-              <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mb-6 group-hover:from-red-200 group-hover:to-red-300 transition-all duration-300">
-                  <MapPin className="h-8 w-8 text-red-600" />
+            <Card className="text-center p-6 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0 contact-card">
+              <CardContent className="pt-6">
+                <div className="mx-auto w-12 h-12 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mb-4 group-hover:from-red-200 group-hover:to-red-300 transition-all duration-300">
+                  <MapPin className="h-6 w-6 text-red-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg text-gray-900">Location</h3>
+                <h3 className="font-bold mb-2 text-base text-gray-900">Location</h3>
                 <a 
                   href="https://maps.app.goo.gl/Q55pRMTiUPafR1736" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-red-600 hover:text-red-700 hover:underline text-lg font-medium transition-colors"
+                  className="text-red-600 hover:text-red-700 hover:underline text-sm font-medium transition-colors"
                 >
                   {currentContent.contact.location}
                 </a>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-8 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0">
-              <CardContent className="pt-8">
-                <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-6 group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300">
-                  <MessageCircle className="h-8 w-8 text-green-600" />
+            <Card className="text-center p-6 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0 contact-card">
+              <CardContent className="pt-6">
+                <div className="mx-auto w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-4 group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300">
+                  <MessageCircle className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="font-bold mb-3 text-lg text-gray-900">WhatsApp</h3>
+                <h3 className="font-bold mb-2 text-base text-gray-900">WhatsApp</h3>
                 <a 
                   href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-600 hover:text-green-700 hover:underline text-lg font-medium transition-colors"
+                  className="text-green-600 hover:text-green-700 hover:underline text-sm font-medium transition-colors"
                 >
                   {currentContent.contact.whatsapp}
                 </a>
@@ -620,12 +623,12 @@ const Index = () => {
           </div>
 
           {/* Fixed Google Maps Embed */}
-          <div className="mb-16">
-            <div className="maps-container bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-5xl mx-auto">
+          <div className="mb-12">
+            <div className="maps-container bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-4xl mx-auto">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.140919439!2d46.67220257077407!3d24.71360279743582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0c3b5c8b1f1f%3A0x1234567890abcdef!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
                 width="100%"
-                height="400"
+                height="300"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -639,26 +642,26 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-16">
+      <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <img 
               src="/lovable-uploads/27ada82d-e324-49ad-b143-e7a842cbf645.png" 
               alt="ALREEM Logo" 
-              className="h-16 mx-auto mb-6 brightness-0 invert"
+              className="h-12 mx-auto mb-4"
             />
-            <p className="text-blue-100 mb-8 text-lg">
+            <p className="text-gray-300 mb-6 text-base">
               {language === 'en' 
                 ? 'Your trusted partner for premium commercial truck parts' 
                 : 'شريكك الموثوق لقطع غيار الشاحنات التجارية المتميزة'
               }
             </p>
-            <div className="flex justify-center items-center space-x-8">
-              <img src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" alt="IVECO" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              <span className="text-blue-300">•</span>
-              <img src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" alt="MAN" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
-              <span className="text-blue-300">•</span>
-              <img src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" alt="ZF" className="h-10 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+            <div className="flex justify-center items-center space-x-6">
+              <img src="/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png" alt="IVECO" className="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              <span className="text-gray-400">•</span>
+              <img src="/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png" alt="MAN" className="h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              <span className="text-gray-400">•</span>
+              <img src="/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png" alt="ZF" className="h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </div>
