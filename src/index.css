@@ -132,39 +132,7 @@
     scroll-behavior: smooth;
   }
 
-  /* Enhanced Animations */
-  .whatsapp-float {
-    animation: whatsapp-pulse 4s infinite;
-  }
-
-  @keyframes whatsapp-pulse {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
-  }
-
-  .animate-pulse-subtle {
-    animation: pulse-subtle 3s ease-in-out infinite;
-  }
-
-  @keyframes pulse-subtle {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
-  }
-
+  /* Enhanced Animations - Removed pulse from buttons */
   .animate-fade-in {
     animation: fadeIn 1s ease-out;
   }
@@ -197,7 +165,7 @@
 
   /* Enhanced slide title animation */
   .slide-title {
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     animation: slideInUp 1.5s ease-out;
   }
 
@@ -261,7 +229,7 @@
     margin-right: auto;
   }
 
-  /* Fixed Google Maps container */
+  /* Fixed Google Maps container - improved design */
   .maps-container {
     position: relative;
     overflow: hidden;
@@ -271,9 +239,9 @@
 
   .maps-container iframe {
     border-radius: 1rem;
-    transform: scale(1);
     transition: none;
     filter: none;
+    border: none;
   }
 
   /* Brand gradient backgrounds */
@@ -373,14 +341,6 @@
     margin-bottom: 1rem !important;
   }
 
-  .whatsapp-float {
-    width: 50px;
-    height: 50px;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px;
-  }
-
   .font-arabic {
     line-height: 1.7;
   }
@@ -412,15 +372,20 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Mobile section spacing */
+  /* Mobile section spacing - reduced for better mobile UX */
   .py-24 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .py-16 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .py-12 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   /* Mobile brand cards */
@@ -437,6 +402,15 @@
   .maps-container iframe {
     height: 250px;
   }
+
+  /* Improve mobile text sizing */
+  .mb-8 {
+    margin-bottom: 1.5rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -451,17 +425,13 @@
   }
 
   /* Smaller spacing for very small screens */
-  .py-24 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .py-12 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
-  .mb-20 {
-    margin-bottom: 2rem;
-  }
-
-  .mb-16 {
-    margin-bottom: 1.5rem;
+  .mb-8 {
+    margin-bottom: 1rem;
   }
 
   /* Text size adjustments */
@@ -476,6 +446,10 @@
   .text-xl {
     font-size: 1.125rem;
   }
+
+  .text-3xl {
+    font-size: 1.5rem;
+  }
 }
 
 /* Print styles */
@@ -485,10 +459,6 @@
   }
   
   nav {
-    display: none !important;
-  }
-  
-  .whatsapp-float {
     display: none !important;
   }
 }
@@ -506,10 +476,6 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-  
-  .whatsapp-float {
-    animation: none !important;
   }
 }
 

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, MessageCircle, Globe, Star, Award, Truck, Send, X, Settings, Wrench, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -112,44 +113,44 @@ const Index = () => {
         home: 'الرئيسية',
         brands: 'العلامات التجارية',
         catalog: 'كتالوج القطع',
-        about: 'عن الرِيم',
+        about: 'عن الشركة',
         contact: 'تواصل معنا'
       },
       hero: {
         slides: [
           {
             title: 'قطع غيار إيفيكو الأصلية والمتميزة',
-            subtitle: 'قطع أصلية ومتوافقة لموديلات إيفيكو سترالس و S-Way',
+            subtitle: 'قطع أصلية ومتوافقة لطرازات إيفيكو ستراليس و S-Way',
             cta: 'استكشف قطع إيفيكو',
             image: '/lovable-uploads/f9ea6a29-be85-4162-90b2-33c087878774.png'
           },
           {
             title: 'إيفيكو S-Way عالية الأداء',
-            subtitle: 'مكونات متميزة للأساطيل التجارية الحديثة',
+            subtitle: 'مكونات أداء متميزة للأساطيل التجارية الحديثة',
             cta: 'كتالوج S-Way',
             image: '/lovable-uploads/9593024c-17bd-4a70-a67c-ea93154a27fd.png'
           },
           {
             title: 'تميز شاحنات مان الألمانية',
-            subtitle: 'قطع مان الأصلية للموثوقية والأداء الفائق',
+            subtitle: 'قطع مان الأصلية للحصول على أقصى موثوقية وأداء',
             cta: 'قطع مان',
             image: '/lovable-uploads/8b5c93e9-e150-4916-9d20-92cd6e8d45a4.png'
           }
         ]
       },
       brands: {
-        title: 'شريك معتمد للعلامات التجارية الرائدة',
-        subtitle: 'قطع غيار شاحنات عالية الجودة من مصنعين مشهورين عالمياً',
+        title: 'الشريك المعتمد للعلامات التجارية الرائدة',
+        subtitle: 'قطع غيار شاحنات عالية الجودة من الشركات المصنعة المشهورة عالمياً',
         items: [
           {
             name: 'إيفيكو',
-            description: 'التميز الإيطالي في المركبات التجارية. قطع أصلية ومتوافقة لجميع موديلات إيفيكو بما في ذلك سترالس و S-Way وسلسلة ديلي.',
+            description: 'التميز الإيطالي في المركبات التجارية. قطع أصلية ومتوافقة لجميع طرازات إيفيكو بما في ذلك ستراليس و S-Way وسلسلة ديلي.',
             logo: '/lovable-uploads/29942a8a-683c-4463-b5df-c9547885542d.png',
             specialties: ['مكونات المحرك', 'قطع ناقل الحركة', 'الأنظمة الكهربائية']
           },
           {
             name: 'مان',
-            description: 'دقة الهندسة الألمانية. قطع مان الأصلية لسلاسل TGX و TGS و TGL مع ضمان الجودة والأداء.',
+            description: 'دقة الهندسة الألمانية. قطع مان الأصلية لسلسلة TGX و TGS و TGL مع ضمان الجودة والأداء.',
             logo: '/lovable-uploads/12602803-7c47-4b74-9377-aa63203c35f2.png',
             specialties: ['أنظمة الفرامل', 'نظام التعليق', 'قطع الكابينة']
           },
@@ -157,37 +158,37 @@ const Index = () => {
             name: 'زد إف',
             description: 'الرائد عالمياً في تقنية نقل الحركة والهيكل. ناقلات حركة وأكسل وأنظمة توجيه ZF المتميزة للمركبات التجارية.',
             logo: '/lovable-uploads/ac3fd0f7-8559-4935-8794-7a9e9eaf1ceb.png',
-            specialties: ['ناقلات الحركة', 'الأكسل', 'أنظمة التوجيه']
+            specialties: ['ناقلات الحركة', 'المحاور', 'أنظمة التوجيه']
           }
         ]
       },
       features: {
-        title: 'ليش تختار الرِيم؟',
+        title: 'لماذا تختار الريم؟',
         items: [
           {
             icon: Award,
             title: 'جودة معتمدة',
-            description: 'كل القطع تطابق المعايير العالمية ومواصفات المصنع'
+            description: 'جميع القطع تلبي المعايير الدولية للجودة ومواصفات الشركة المصنعة'
           },
           {
             icon: Truck,
             title: 'خبرة متخصصة',
-            description: 'سنوات من الخبرة في قطع الشاحنات التجارية وحلول الأساطيل'
+            description: 'سنوات من الخبرة في قطع غيار الشاحنات التجارية وحلول الأساطيل'
           },
           {
             icon: Star,
             title: 'خدمة سريعة',
-            description: 'توريد وتوصيل سريع لاحتياجات صيانة الأساطيل العاجلة'
+            description: 'توريد وتسليم سريع لاحتياجات صيانة الأساطيل العاجلة'
           }
         ]
       },
       contact: {
-        title: 'تواصل مع الرِيم',
-        subtitle: 'مستعدين نساعدك في كل احتياجات قطع غيار الشاحنات التجارية',
+        title: 'تواصل مع الريم',
+        subtitle: 'مستعدون لمساعدتك في جميع احتياجاتك من قطع غيار الشاحنات التجارية',
         phone: '+966 50 410 6845',
         email: 'info@alreem-parts.sa',
-        location: 'شوف موقعنا',
-        whatsapp: 'واتساب الحين'
+        location: 'عرض موقعنا',
+        whatsapp: 'واتساب الآن'
       },
       chat: {
         title: 'تحتاج مساعدة؟',
@@ -281,23 +282,23 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen bg-background ${language === 'ar' ? 'rtl font-arabic' : 'ltr font-english'}`} dir={language === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Fixed WhatsApp Button */}
+      {/* Fixed WhatsApp Button - Removed pulse animation */}
       <a
         href="https://wa.me/966504106845?text=Hello, I'm interested in truck parts for IVECO/MAN/ZF"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-xl hover:bg-[#20BA5A] transition-all duration-300 hover:scale-110 whatsapp-float animate-pulse-subtle"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-3 rounded-full shadow-xl hover:bg-[#20BA5A] transition-all duration-300 hover:scale-110"
         aria-label="Contact us on WhatsApp"
       >
         <MessageCircle className="h-5 w-5" />
       </a>
 
-      {/* Enhanced Chat Bot */}
+      {/* Enhanced Chat Bot - Removed pulse animation */}
       <div className="fixed bottom-6 left-6 z-50">
         {!isChatOpen ? (
           <button
             onClick={() => setIsChatOpen(true)}
-            className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 rounded-full shadow-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-110 animate-pulse-subtle"
+            className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 rounded-full shadow-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-110"
             aria-label="Open chat"
           >
             <MessageCircle className="h-5 w-5" />
@@ -409,7 +410,7 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Slideshow with Minimal Overlay */}
+      {/* Hero Slideshow - No overlay for clearer images */}
       <section id="home" className="relative h-screen overflow-hidden">
         <div className="relative w-full h-full">
           {currentContent.hero.slides.map((slide, index) => (
@@ -424,8 +425,9 @@ const Index = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 hero-gradient"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* Minimal overlay only at the bottom for text readability */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute inset-0 flex items-end justify-center pb-32">
                 <div className="text-center text-white max-w-4xl mx-auto px-4 animate-fade-in-up">
                   <h1 className="text-3xl md:text-5xl font-bold mb-4 slide-title leading-tight">
                     {slide.title}
@@ -456,7 +458,6 @@ const Index = () => {
           <ChevronRight className="h-5 w-5" />
         </button>
 
-        {/* Slide Indicators */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {currentContent.hero.slides.map((_, index) => (
             <button
@@ -471,9 +472,9 @@ const Index = () => {
       </section>
 
       {/* Enhanced Brand Cards Section */}
-      <section id="brands" className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <section id="brands" className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in">
               {currentContent.brands.title}
             </h2>
@@ -523,15 +524,15 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-gradient-to-b from-orange-50 to-white">
+      <section className="py-12 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {currentContent.features.title}
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {currentContent.features.items.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
@@ -551,9 +552,9 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gradient-to-b from-white to-gray-50">
+      <section id="contact" className="py-12 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {currentContent.contact.title}
             </h2>
@@ -562,7 +563,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <Card className="text-center p-6 card-hover hover:shadow-xl transition-all duration-300 group bg-white border-0 contact-card">
               <CardContent className="pt-6">
                 <div className="mx-auto w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-4 group-hover:from-orange-200 group-hover:to-orange-300 transition-all duration-300">
@@ -594,7 +595,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-bold mb-2 text-base text-gray-900">Location</h3>
                 <a 
-                  href="https://maps.app.goo.gl/Q55pRMTiUPafR1736" 
+                  href="https://www.google.com/maps?q=26.4615001,50.0139968" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-red-600 hover:text-red-700 hover:underline text-sm font-medium transition-colors"
@@ -622,11 +623,11 @@ const Index = () => {
             </Card>
           </div>
 
-          {/* Fixed Google Maps Embed */}
-          <div className="mb-12">
+          {/* Fixed Google Maps Embed with correct coordinates */}
+          <div className="mb-8">
             <div className="maps-container bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-4xl mx-auto">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.140919439!2d46.67220257077407!3d24.71360279743582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0c3b5c8b1f1f%3A0x1234567890abcdef!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.123456789!2d50.0139968!3d26.4615001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e8b5c8b1f1f1%3A0x1234567890abcdef!2sAlreem%20Parts!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -642,7 +643,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+      <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <img 
